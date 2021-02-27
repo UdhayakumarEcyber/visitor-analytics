@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="icon" href="https://static.iviva.com/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+
+    <!-- <link rel="stylesheet" type="text/css" href="./node_modules/react-grid-layout/css/styles.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="./node_modules/react-resizable/css/styles.css"> -->
+
+    <link rel="stylesheet" type="text/css" href="https://uxp.s3.amazonaws.com/dist/master/uxp_dashboard.css">
+
+
+    <title>UXP Development Environment</title>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <!-- Dependencies -->
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+
+    <script crossorigin src="https://unpkg.com/prop-types/prop-types.min.js"></script>
+    <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/recharts/1.8.5/Recharts.min.js"></script>
+
+    <!-- Main -->
+    <script src="https://uxp.s3.amazonaws.com/dist/master/main.js"></script>
+
+    <script>
+
+        // scripts
+        let scripts = [
+            "./dist/main.js",
+        ]
+
+        let installedWidgets = [];
+        try {
+            installedWidgets = JSON.parse(localStorage.getItem('uxp-widgets')) || [];
+        } catch (e) {
+
+        }
+        let deletedWidgets = [];
+
+        let contextProviderValue = {
+            userKey: "user_001",
+            root: "root",
+            sidebarItems: () => (window.SidebarLinks || []).map(s => s.id),
+            scriptFiles: scripts, // widget script files
+            apiKey: '',
+            widgetManager: {
+                loadFromMarketPlace: false,
+                url: "",
+                getInstalledWidgets: () => installedWidgets,
+                getDeletedWidgets: () => deletedWidgets,
+                onWidgetsChanged: (added, deleted) => {
+                    return new Promise((resolve, reject) => {
+                        installedWidgets = added;
+                        deletedWidgets = deleted;
+                        localStorage.setItem('uxp-widgets', JSON.stringify(installedWidgets));
+                        resolve();
+                    });
+                }
+            }
+        }
+        let toolbars = [{
+            component: UXPComponents.DeveloperMenu,
+            props: {
+                title: '',
+                url: contextProviderValue.lucyUrl,
+                apiKey: contextProviderValue.apiKey,
+                onSave: (url, apiKey) => {
+                    updateCredentials(url, apiKey);
+                }
+            }
+        }];
+
+        // render 
+        renderDashboard(contextProviderValue, toolbars);
+
+        // update credentials
+        function updateCredentials(lucyUrl, apiKey) {
+            localStorage.setItem('lucyUrl', lucyUrl);
+            localStorage.setItem('lucyApiKey', apiKey);
+            contextProviderValue.lucyUrl = lucyUrl;
+            contextProviderValue.apiKey = apiKey;
+            let _toolbars = [{
+                component: UXPComponents.DeveloperMenu,
+                props: {
+                    title: '',
+                    url: contextProviderValue.lucyUrl,
+                    apiKey: contextProviderValue.apiKey,
+                    onSave: (url, apiKey) => {
+                        updateCredentials(url, apiKey);
+                    }
+                }
+            }];
+            renderDashboard(contextProviderValue, _toolbars);
+        }
+        let storedUrl = localStorage.getItem('lucyUrl');
+        let storedApiKey = localStorage.getItem('lucyApiKey');
+        if (!!storedUrl && !!storedApiKey) {
+            updateCredentials(storedUrl, storedApiKey);
+        }
+        /*
+        Call this to link this setup with an iviva account
+        updateCredentials('http://demo.lucy.iviva.cloud','SC:demo:0a22e95581330018');
+        */
+
+    </script>
+
+
+
+</body>
+
+</html>
