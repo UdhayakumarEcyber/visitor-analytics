@@ -81,7 +81,7 @@ const VisitorDistributionWidget: React.FunctionComponent<IWidgetProps> = (props)
  * Register as a Widget
  */
 registerWidget({
-    id: "visitor-analytics",
+    id: "visitor-distribution",
     name: "VisitorDistribution",
     widget: VisitorDistributionWidget,
     configs: {

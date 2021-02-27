@@ -1,16 +1,11 @@
 {
     "id":"5097d2e7-f79d-4a24-8ca2-6bcd6629f762",
-    "author":"",
+    "author":"eutech",
     "widgets":[
         {
-            "id":"visitor_analytics",
-            "title":"visitor_analytics",
-            "description":"A sample widget"
-        }
-    ],
-    "sidebarLinks":[
-        {
-            "id":"visitor_analyticsLink"
+            "id":"visitor-distribution",
+            "title":"Visitor Distribution over time",
+            "description":"This widget shwos you how visitors entering your buildings change over timet"
         }
     ]
 }

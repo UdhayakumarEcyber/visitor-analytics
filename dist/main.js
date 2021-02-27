@@ -90,10 +90,10 @@
 /*!*********************!*\
   !*** ./bundle.json ***!
   \*********************/
-/*! exports provided: id, author, widgets, sidebarLinks, default */
+/*! exports provided: id, author, widgets, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"id\":\"5097d2e7-f79d-4a24-8ca2-6bcd6629f762\",\"author\":\"\",\"widgets\":[{\"id\":\"visitor_analytics\",\"title\":\"visitor_analytics\",\"description\":\"A sample widget\"}],\"sidebarLinks\":[{\"id\":\"visitor_analyticsLink\"}]}");
+module.exports = JSON.parse("{\"id\":\"5097d2e7-f79d-4a24-8ca2-6bcd6629f762\",\"author\":\"eutech\",\"widgets\":[{\"id\":\"visitor-distribution\",\"title\":\"Visitor Distribution over time\",\"description\":\"This widget shwos you how visitors entering your buildings change over timet\"}]}");
 
 /***/ }),
 
@@ -10526,7 +10526,7 @@ const VisitorDistributionWidget = (props) => {
  * Register as a Widget
  */
 uxp_1.registerWidget({
-    id: "visitor-analytics",
+    id: "visitor-distribution",
     name: "VisitorDistribution",
     widget: VisitorDistributionWidget,
     configs: {
