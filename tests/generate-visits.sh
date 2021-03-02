@@ -1,9 +1,9 @@
 #!/bin/sh
 year="2021"
-month="02"
-day="27"
-URL="http://lucy1.local:5000"
-APIKEY="SC:lucy1:e255756835518e03"
+month="03"
+day="02"
+URL="$1"
+APIKEY="$2"
 
 # curl -X POST http://lucy1.local:5000/Lucy/VisitorAnalytics/arrival/Building1 -H "Authorization: APIKEY SC:lucy1:e255756835518e03" -H "Content-Type: application/json" --data '{ "count": 23,"time":$dt }'
 
