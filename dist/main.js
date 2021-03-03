@@ -9586,9 +9586,9 @@ module.exports = /*#__PURE__*/function (_BaseClient) {
 
 /***/ }),
 
-/***/ "./node_modules/webpack-dev-server/client/index.js?http://localhost:8084":
+/***/ "./node_modules/webpack-dev-server/client/index.js?http://localhost:8082":
 /*!*********************************************************!*\
-  !*** (webpack)-dev-server/client?http://localhost:8084 ***!
+  !*** (webpack)-dev-server/client?http://localhost:8082 ***!
   \*********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -9770,7 +9770,7 @@ var onSocketMessage = {
   }
 };
 socket(socketUrl, onSocketMessage);
-/* WEBPACK VAR INJECTION */}.call(this, "?http://localhost:8084"))
+/* WEBPACK VAR INJECTION */}.call(this, "?http://localhost:8082"))
 
 /***/ }),
 
@@ -10507,7 +10507,7 @@ const VisitorDistributionWidget = (props) => {
         React.createElement(components_1.TitleBar, { icon: VisitorIcon, title: 'Visits' },
             React.createElement(components_1.FilterPanel, null,
                 React.createElement(components_1.DatePicker, { date: date, onChange: updateDate, title: 'Date' }))),
-        React.createElement("div", { style: { flex: 1 } },
+        React.createElement("div", { style: { width: "100%", height: "80%", flex: 1 } },
             React.createElement(recharts_1.ResponsiveContainer, { width: "100%", height: "100%" },
                 React.createElement(recharts_1.ComposedChart, { width: 500, height: 300, data: chartData, margin: {
                         top: 5,
@@ -10641,12 +10641,12 @@ exports.registerUI = registerUI;
 
 /***/ 0:
 /*!*******************************************************************************!*\
-  !*** multi (webpack)-dev-server/client?http://localhost:8084 ./src/index.tsx ***!
+  !*** multi (webpack)-dev-server/client?http://localhost:8082 ./src/index.tsx ***!
   \*******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/shivanan/eutech/usecases/visitor-analytics/node_modules/webpack-dev-server/client/index.js?http://localhost:8084 */"./node_modules/webpack-dev-server/client/index.js?http://localhost:8084");
+__webpack_require__(/*! D:\Udhay Project files\Udhaya_project\visitor-analytics\node_modules\webpack-dev-server\client\index.js?http://localhost:8082 */"./node_modules/webpack-dev-server/client/index.js?http://localhost:8082");
 module.exports = __webpack_require__(/*! ./src/index.tsx */"./src/index.tsx");
 
 

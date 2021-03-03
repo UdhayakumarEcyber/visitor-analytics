@@ -51,28 +51,28 @@ const VisitorDistributionWidget: React.FunctionComponent<IWidgetProps> = (props)
                     <DatePicker date={date} onChange={updateDate} title={'Date'} />
                 </FilterPanel>
             </TitleBar>
-            <div style={{ flex: 1 }}>
-        <ResponsiveContainer width="100%" height="100%">
-          <ComposedChart
-            width={500}
-            height={300}
-            data={chartData}
-            margin={{
-              top: 5,
-              right: 30,
-              left: 20,
-              bottom: 5,
-            }}
-          >
-            <CartesianGrid strokeWidth={0} />
-            <XAxis dataKey="hour" />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <Bar dataKey="count" fill="#8884d8" />
-          </ComposedChart>
-        </ResponsiveContainer>
-      </div>
+            <div style={{ width: "100%", height: "80%", flex: 1 }}> 
+                <ResponsiveContainer width="100%" height="100%">
+                <ComposedChart
+                    width={500}
+                    height={300}
+                    data={chartData}
+                    margin={{
+                    top: 5,
+                    right: 30,
+                    left: 20,
+                    bottom: 5,
+                    }}
+                >
+                    <CartesianGrid strokeWidth={0} />
+                    <XAxis dataKey="hour" />
+                    <YAxis />
+                    <Tooltip />
+                    <Legend />
+                    <Bar dataKey="count" fill="#8884d8" />
+                </ComposedChart>
+                </ResponsiveContainer> 
+            </div>
         </WidgetWrapper>
     )
 };
